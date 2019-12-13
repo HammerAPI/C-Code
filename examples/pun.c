@@ -1,3 +1,6 @@
+// As is tradition, the infamous C pun
+// Prints the pun to the terminal
+
 #include <stdio.h>
 
 int main(void)
