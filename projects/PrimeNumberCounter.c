@@ -1,6 +1,4 @@
-/* Author: Daniel Hammer
- *
- * A program to display all of the prime numbers within a specified ranger
+ /* Aprogram to display all of the prime numbers within a specified ranger
  *
  * Asks the user for an input a displays all primes up to the input
  */
