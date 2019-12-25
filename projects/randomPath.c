@@ -8,6 +8,11 @@
  * 1 - a path to Z has been found
  * 2 - no legal path exists
  * Prints the final result
+ *
+ *
+ * Possible improvements:
+ *      - Turn the movement loop into an independent function
+ *      - Get rid of the bars around the four sides of the box; looks nicer
  */
 
 #include <stdio.h>
@@ -163,4 +168,6 @@ int main(void)
         printf("\n");
     }
     printf("\n");
+
+    return 0;
 }
