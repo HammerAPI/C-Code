@@ -1,3 +1,17 @@
+/**********************************************
+ * IMPORTANT: PROGRAM IS CURRENTLY UNFINISHED *
+ * *******************************************/
+
+
+
+
+
+
+
+
+
+
+
 /* Author: Daniel Hammer
  *
  * Big Text Generator
