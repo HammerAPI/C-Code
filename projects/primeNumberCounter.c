@@ -1,6 +1,8 @@
- /* Aprogram to display all of the prime numbers within a specified ranger
+/* Author: Daniel Hammer
  *
- * Asks the user for an input a displays all primes up to the input
+ * A program to display all of the prime numbers within a specified range
+ *
+ * Asks the user for an input and displays all primes up to the input
  */
 
 #include <stdio.h>
@@ -34,7 +36,7 @@ int main(void)
     int input;
 
     // Prompt the user for input
-    printf("Please enter an upperbound integer\n");
+    printf("Please enter an upper bound integer\n");
     scanf("%d", &input);
 
     printf("The prime numbers up to %d are:\n", input);
