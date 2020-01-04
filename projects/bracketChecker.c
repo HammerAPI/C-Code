@@ -17,31 +17,33 @@
 
 // Global variables
 int stack[STACK_SIZE];
-int top = 0;
+int *top = &stack[0];
 
 // Method prototypes
 bool isEmpty();
 bool isFull();
 void push(char);
 char pop();
-void stackFlow();
+void stackUnderflow();
+void stackOverflow();
+bool canPop();
 
 // Doesn't actually empty the stack, rather points the top to the beginning,
 // making the program think the stack is empty
 void makeEmpty()
 {
-    top = 0;
+    *top = 0;
 }
 
 bool isEmpty()
 {
-    return top == 0;
+    return top == &stack[0];
 }
 
 
 bool isFull()
 {
-    return top == STACK_SIZE;
+    return top == &stack[STACK_SIZE - 1];
 }
 
 // Adds a value to the top and increments the top
@@ -49,11 +51,11 @@ void push(char ch)
 {
     if (isFull())
     {
-        stackFlow();
+        stackOverflow();
     }
     else
     {
-        stack[top++] = ch;
+        *top++ = ch;
     }
 }
 
@@ -62,28 +64,34 @@ char pop()
 {
     if (isEmpty())
     {
-        stackFlow();
-        return 0;
+        stackUnderflow();
+        return '0';
     }
     else
     {
-        return stack[--top];
+        return *--top;
     }
 }
 
-// If empty, stack underflow
-// If full, stack overflow
-void stackFlow()
+// If the pointer is pointing to anything after the first element, return true
+// else false
+bool canPop()
 {
-    if (isEmpty())
+    if (top > &stack[0])
     {
-        printf("Stack is empty!");
+        return true;
     }
-    else if (isFull())
-    {
-        printf("Stack is full!");
-    }
-    exit(EXIT_FAILURE);
+    return false;
+}
+
+void stackUnderflow()
+{
+    printf("Stack is empty!");
+}
+
+void stackOverflow()
+{
+    printf("Stack is full!");
 }
 
 
@@ -107,6 +115,12 @@ int main()
         // If right-hand brace, compare with popped item
         if (ch == ')' || ch == '}' || ch == ']')
         {
+            // If there are more left-hand items
+            // ie. user entered '(()'
+            if (canPop() == false){
+                printf("Brackets are not nested properly");
+                exit(EXIT_FAILURE);
+            }
             popped = pop();
             if ((popped == '(' && ch != ')')
                     || (popped == '{' && ch != '}')
