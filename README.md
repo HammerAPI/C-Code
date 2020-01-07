@@ -12,3 +12,5 @@ Examples - Tutorial programs explaining the fundamentals of C. These are typical
 Projects - Miscellaneous projects written for fun.
 
 Recursion - Examples covering Recursion in C.
+
+Games - Interactive programs to play around with.
